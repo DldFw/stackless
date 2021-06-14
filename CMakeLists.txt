@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.5)
+project(exchange)
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+include_directories(./)
+file(GLOB stackless_src "./*.cpp")
+set(link_lib pthread)
+
+add_executable(httpserver ${stackless_src})
+
+target_link_libraries(httpserver ${link_lib})
+
+
